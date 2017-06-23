@@ -27,7 +27,7 @@ class TweetExpander(object):
 		return self.twitlonger_API.get_text(url)
 
 	matches = {
-		re.compile(r'^http://(?:www\.)?twishort.com/\w+$'): expand_twishort,
-		re.compile(r'^http://(?:www\.)?tl.gd/\w+$'): expand_twitlonger,
-		re.compile(r'^http://(?:www\.)?twitlonger.com/show/\w+$'): expand_twitlonger,
+		re.compile(r'^https?://(?:www\.)?twishort.com/\w+$'): expand_twishort,
+		re.compile(r'^https?://(?:www\.)?tl.gd/\w+$'): expand_twitlonger,
+		re.compile(r'^https?://(?:www\.)?twitlonger.com/show/\w+$'): expand_twitlonger,
 	}
