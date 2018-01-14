@@ -15,7 +15,7 @@ class TweetExpander(object):
 			return processor(self, url)
 
 	def is_shortened(self, url):
-		for regexp in self.matches.iterkeys():
+		for regexp in self.matches.keys():
 			if regexp.search(url):
 				return True
 		return False
