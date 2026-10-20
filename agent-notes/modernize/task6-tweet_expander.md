@@ -2,7 +2,7 @@
 
 ## Goal
 
-Use the existing dict items API so retrieve_text can route supported provider URLs on Python 3. Smallest slice: one source substitution and approximately 42 lines of regression tests; no URL-pattern, provider, dependency, or public-API change.
+Use the existing dict items API so retrieve_text can route supported provider URLs on Python 3. Add a minimal hosted gate for the existing offline suite and package build under the subsequent all-open-PR authorization; no URL-pattern, provider, dependency, or public-API change.
 
 ## State
 
@@ -20,4 +20,6 @@ Replace `.iteritems()` with `.items()`, retaining historical Python compatibilit
 
 ## Next step
 
-Inspect and commit only tweet_expander.py, test_tweet_expander.py and this note, then request coordinator review before publishing. No external provider compatibility is claimed from mocked adapters.
+CI amendment is isolated on repair/task6-tweet_expander-ci from published #1 head cb46fba3a37ab36086499d5cc05762f54dc693bc. Both original local and published tips are preserved at backup/task6-tweet_expander-ci-local and backup/task6-tweet_expander-ci-published; original worktree files are untouched. Default master has no tests (only module and setup.py), so the coordinator authorized CI directly on the existing feature suite rather than a zero-test prerequisite. Actions enabled=true was verified read-only. One Linux/Python 3.12 job runs the full two-test offline suite without installing provider dependencies (imports/adapters are mocked), builds the existing setup.py package, and requires both artifacts. No source/dependency changes or service calls. Latest official action releases were resolved to pinned commits; Actions Dependabot maintains them.
+
+Local amendment validation on Python 3.12: full two-test suite passed, including all four supported URL subcases and unsupported input; uv build produced both exact package artifacts, with the pre-existing missing-README sdist warning. actionlint 1.7.12 passed; zizmor 1.31.1 offline reported no findings (one default suppression). Generated package artifacts are excluded from staging. Return the exact local head for coordinator review before any explicit-lease push to the original PR ref. Actual Claude review of the final augmented head and green hosted checks are required before merge. No external provider compatibility is claimed from mocked adapters.
