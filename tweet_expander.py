@@ -9,7 +9,7 @@ class TweetExpander(object):
 		self.twishort_API = twishort.TwishortAPI()
 
 	def retrieve_text(self, url):
-		for (regexp, processor) in self.matches.iteritems():
+		for (regexp, processor) in self.matches.items():
 			if not regexp.search(url):
 				continue
 			return processor(self, url)
